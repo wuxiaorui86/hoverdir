@@ -2,13 +2,13 @@
     "name": "hoverdir",
     "comName":"Hoverdir",
     "version": "1.0",
-    "desc": "",
+    "desc": "可以感应方向的鼠标悬停效果(基于KISSY)",
     "tag":"hover效果",
     "githubName":"wuxiaorui86",
     "author": {
         "name": "元泉",
         "email": "yuanquan.wxr@taobao.com",
-        "page": ""
+        "page": "https://github.com/wuxiaorui86"
     },
 	"flexComboPort":"81",
 	"reserveServerPort":"8080",

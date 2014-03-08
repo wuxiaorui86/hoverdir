@@ -9,8 +9,12 @@ Hoverdir是。
 ## 初始化组件
 		
     S.use('gallery/hoverdir/1.0/index', function (S, Hoverdir) {
-         var hoverdir = new Hoverdir();
-    })
+         var hd = new Hoverdir({
+            el : S.one('#wrap'),
+            hoverDelay : 0,
+            reverse : false
+        });
+    });
 	
 	
 
