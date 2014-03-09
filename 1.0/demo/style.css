@@ -22,14 +22,17 @@
 	position: relative;
 	box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
-.ks-thumbs li a,
-.ks-thumbs li a img {
-	display: block;
-	position: relative;
-}
 .ks-thumbs li a {
 	overflow: hidden;
+	display: block;
+	position:relative;
 }
+.ks-thumbs li a img {
+	vertical-align: top;
+	width:290px;
+	height:193px;
+}
+
 .ks-thumbs li a div span {
 	display: block;
 	padding: 10px 0;
