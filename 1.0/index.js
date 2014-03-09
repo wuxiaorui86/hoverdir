@@ -110,7 +110,7 @@ KISSY.add(function (S, Node,Base) {
             value : false
         },
         slideElCls : {
-            value : "ks-slider-item"
+            value : "ks-slide-item"
         },
         hoverProxy : {
             value : document

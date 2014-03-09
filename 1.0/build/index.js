@@ -116,7 +116,7 @@ KISSY.add('gallery/hoverdir/1.0/index',function (S, Node,Base) {
             value : false
         },
         slideElCls : {
-            value : "ks-slider-item"
+            value : "ks-slide-item"
         },
         hoverProxy : {
             value : document

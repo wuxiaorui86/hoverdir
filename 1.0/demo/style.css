@@ -1,3 +1,12 @@
+.container header h1{
+	font-size: 40px;
+	line-height: 40px;
+	padding: 10px;
+	color: #248C3B;
+	text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
+	text-align: center;
+}
+
 .ks-thumbs {
 	list-style: none;
 	width: 990px;
@@ -35,13 +44,13 @@
 
 
 
-.ks-slider-item {
+.ks-slide-item {
 	position: absolute;
 	background: rgba(75,75,75,0.7);
 	width: 100%;
 	height: 100%;
 }
-.ks-slider-item {
+.ks-slide-item {
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
