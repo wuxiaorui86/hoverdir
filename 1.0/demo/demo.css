@@ -1,19 +1,5 @@
-a{
-	color: #555;
-	text-decoration: none;
-}
-.container{
-	width: 100%;
-	position: relative;
-	min-height: 750px;
-}
-.clr{
-	clear: both;
-	padding: 0;
-	height: 0;
-	margin: 0;
-}
-.container > header{
+
+.container header{
 	margin: 10px;
 	padding: 20px 10px 10px 10px;
 	position: relative;
@@ -21,7 +7,7 @@ a{
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
     text-align: center;
 }
-.container > header > span{
+.container header span{
 	font-family: 'Alegreya SC', Georgia, serif;
 	font-size: 20px;
 	line-height: 20px;
@@ -31,20 +17,19 @@ a{
 	color: #719dab;
 	text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
 }
-.container > header h1{
+.container header h1{
 	font-size: 40px;
 	line-height: 40px;
 	margin: 0;
 	position: relative;
 	font-weight: 300;
-	color: #498ea5;
-	padding: 5px 0px;
+	color: #248C3B;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
 }
-.container > header h1 span{
+.container header h1 span{
 	font-weight: 700;
 }
-.container > header h2{
+.container header h2{
 	font-size: 14px;
 	font-weight: 300;
 	letter-spacing: 2px;
@@ -54,7 +39,7 @@ a{
 	color: #6190ca;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.7);
 }
-.container > header p{
+.container header p{
 	font-style: italic;
 	color: #aaa;
 	text-shadow: 1px 1px 1px rgba(255,255,255,0.7);

@@ -25,36 +25,32 @@ KISSY.add(function (S, Node,Base) {
         _loadEvents : function() {
             
             var _self = this;
-            var el = _self.get('el');
-            var hoverElCls = _self.get('hoverElCls');
+            var elCls = _self.get('elCls');
+            var slideElCls = _self.get('slideElCls');
             
-            el.on( 'mouseenter.hoverdir, mouseleave.hoverdir', function( event ) {
+            $(_self.get('hoverProxy')).delegate( 'mouseenter.hoverdir, mouseleave.hoverdir', '.' + elCls, function( event ) {
                 
-                var $el         = $(this),
-                    evType      = event.type,
-                    $hoverElem  = $el.one('.'+hoverElCls),
+                var $el         = $(event.currentTarget),
+                    $hoverElem  = $el.one('.'+slideElCls),
                     direction   = _self._getDir( $el, { x : event.pageX, y : event.pageY } ),
                     hoverClasses= _self._getClasses( direction );
                 
-                $hoverElem.attr('class',hoverElCls);
+                _self._resetClass($hoverElem);
                 
-                if( evType === 'mouseenter' ) {
+                if( event.type === 'mouseenter' ) {
                     
                     $hoverElem.hide().addClass( hoverClasses.from );
                     
                     clearTimeout( _self.tmhover );
                     
-                    _self.tmhover   = setTimeout( function() {
+                    _self.tmhover = setTimeout( function() {
                         
-                        $hoverElem.show().addClass( 'ks-animate' ).addClass( hoverClasses.to );
+                        $hoverElem.show().addClass( hoverClasses.to );
                     
                     }, _self.get('hoverDelay') );
                     
-                }
-                else {
-                
-                    $hoverElem.addClass( 'ks-animate' );
-                    
+                } else {
+                                    
                     clearTimeout( _self.tmhover );
                     
                     $hoverElem.addClass( hoverClasses.from );
@@ -63,6 +59,15 @@ KISSY.add(function (S, Node,Base) {
                     
             } );
             
+        },
+        _resetClass : function(el){
+            var temp = 'data-class-old', oldCls = el.attr(temp);
+            if(!oldCls){
+                oldCls = el.attr('class');
+                el.attr(temp, oldCls);
+            }else{
+                el.attr('class', oldCls);
+            }
         },
         // credits : http://stackoverflow.com/a/3647634
         _getDir             : function( $el, coordinates ) {
@@ -87,41 +92,16 @@ KISSY.add(function (S, Node,Base) {
             
         },
         _getClasses         : function( direction ) {
-            
-            var fromClass, toClass, reverse = this.get('reverse');
-            
-            switch( direction ) {
-                case 0:
-                    // from top
-                    ( !reverse ) ? fromClass = 'ks-slideFromTop' : fromClass = 'ks-slideFromBottom';
-                    toClass     = 'ks-slideTop';
-                    break;
-                case 1:
-                    // from right
-                    ( !reverse ) ? fromClass = 'ks-slideFromRight' : fromClass = 'ks-slideFromLeft';
-                    toClass     = 'ks-slideLeft';
-                    break;
-                case 2:
-                    // from bottom
-                    ( !reverse ) ? fromClass = 'ks-slideFromBottom' : fromClass = 'ks-slideFromTop';
-                    toClass     = 'ks-slideTop';
-                    break;
-                case 3:
-                    // from left
-                    ( !reverse ) ? fromClass = 'ks-slideFromLeft' : fromClass = 'ks-slideFromRight';
-                    toClass     = 'ks-slideLeft';
-                    break;
+
+            return { 
+                from : this.get("fromClass")[!this.get('reverse') ? direction : (direction + 2) % 4], 
+                to: this.get("toClass")[direction] 
             };
-            
-            return { from : fromClass, to: toClass };
                     
         }    
     }, {ATTRS : /** @lends Hoverdir*/{
-        el : {
-            value : null,
-            setter : function(el){
-                return Node.one(el);
-            }
+        elCls : {
+            value : "ks-hover-item"     
         },
         hoverDelay  : {
             value : 0
@@ -129,8 +109,17 @@ KISSY.add(function (S, Node,Base) {
         reverse     : {
             value : false
         },
-        hoverElCls : {
-            value : "hover-element"
+        slideElCls : {
+            value : "ks-slider-item"
+        },
+        hoverProxy : {
+            value : document
+        },
+        fromClass : {
+            value : ['ks-slideFromTop','ks-slideFromRight','ks-slideFromBottom','ks-slideFromLeft']
+        },
+        toClass : {
+            value : ['ks-slideTop','ks-slideRight','ks-slideBottom','ks-slideLeft']
         }
     }});
 

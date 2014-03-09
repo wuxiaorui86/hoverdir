@@ -1,8 +1,7 @@
 .ks-thumbs {
 	list-style: none;
-	width: 984px;
-	height: 600px;
-	position: relative;
+	width: 990px;
+	overflow:hidden;
 	margin: 20px auto;
 	padding: 0;
 }
@@ -22,13 +21,27 @@
 .ks-thumbs li a {
 	overflow: hidden;
 }
-.ks-thumbs li a div {
+.ks-thumbs li a div span {
+	display: block;
+	padding: 10px 0;
+	margin: 40px 20px 20px 20px;
+	text-transform: uppercase;
+	font-weight: normal;
+	color: rgba(255,255,255,0.9);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+	border-bottom: 1px solid rgba(255,255,255,0.5);
+	box-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 -10px 0 rgba(255,255,255,0.3);
+}
+
+
+
+.ks-slider-item {
 	position: absolute;
 	background: rgba(75,75,75,0.7);
 	width: 100%;
 	height: 100%;
 }
-.ks-thumbs li a div.ks-animate {
+.ks-slider-item {
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease-in-out;
 	-o-transition: all 0.3s ease-in-out;
@@ -53,20 +66,11 @@
 	left: 100%;
 }
 /* Final state classes: */
-.ks-slideTop {
+.ks-slideTop,
+.ks-slideBottom {
 	top: 0px;
 }
-.ks-slideLeft {
+.ks-slideLeft,
+.ks-slideRight {
 	left: 0px;
-}
-.ks-thumbs li a div span {
-	display: block;
-	padding: 10px 0;
-	margin: 40px 20px 20px 20px;
-	text-transform: uppercase;
-	font-weight: normal;
-	color: rgba(255,255,255,0.9);
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-	border-bottom: 1px solid rgba(255,255,255,0.5);
-	box-shadow: 0 1px 0 rgba(0,0,0,0.1), 0 -10px 0 rgba(255,255,255,0.3);
 }
