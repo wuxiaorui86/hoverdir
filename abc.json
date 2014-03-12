@@ -13,5 +13,6 @@
 	"flexComboPort":"81",
 	"reserveServerPort":"8080",
     "type": "kissy-gallery",
+    "cover":"http://gtms02.alicdn.com/tps/i2/T1wouqFy8cXXaUXZYm-1878-864.jpg_600x600.jpg",
     "type-url": "http://gallery.kissyui.com/guide"
 }
